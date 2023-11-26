@@ -42,3 +42,17 @@
 >
   Reset User
 </button>
+<hr />
+<button (click)="onToggle()" class="btn btn-primary">Display details</button>
+
+<p *ngIf="showText">Lalalla</p>
+
+<ul>
+  <li
+    *ngFor="let time of logs; let i = index"
+    [ngStyle]="{ backgroundColor: i >= 4 ? 'blue' : 'white' }"
+    [ngClass]="{ textColor: i >= 4 }"
+  >
+    Button Clicked at {{ time }}
+  </li>
+</ul>

@@ -3,7 +3,13 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-servers',
   templateUrl: './servers.component.html',
-  styleUrls: ['./servers.component.css'],
+  styles: [
+    `
+      .textColor {
+        color: white;
+      }
+    `,
+  ],
 })
 export class ServersComponent {
   allowNewServer = false;
@@ -12,6 +18,8 @@ export class ServersComponent {
   username = '';
   serverCreated = false;
   servers = ['Test Server', 'Test Server 2'];
+  showText = true;
+  logs = [];
 
   constructor() {
     setTimeout(() => {
@@ -32,5 +40,10 @@ export class ServersComponent {
 
   onResetUserName() {
     this.username = '';
+  }
+
+  onToggle() {
+    this.showText = !this.showText;
+    this.logs.push(new Date());
   }
 }
